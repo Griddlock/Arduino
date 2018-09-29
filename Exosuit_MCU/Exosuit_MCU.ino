@@ -16,10 +16,10 @@ void setup() {
       // Spring-assisted movement to help lift (think garage door opener, with spring-loaded pulley and cable)
     // arm gun, back gun, exit (think of all the controls needed)
     
-    pinMode(2, OUTPUT);
+    pinMode(2, OUTPUT); //
     pinMode(3, OUTPUT); // PWM
-    pinMode(4, OUTPUT);
-    pinMode(5, OUTPUT); // PWM
+    pinMode(4, OUTPUT); //
+    pinMode(5, OUTPUT); // PWM  
     pinMode(6, OUTPUT); // PWM
     pinMode(7, OUTPUT);
     pinMode(8, OUTPUT);

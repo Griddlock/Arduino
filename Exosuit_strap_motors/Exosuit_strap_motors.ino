@@ -1,10 +1,15 @@
 // Ingress/Egress control board
 // This board controls up to 4 of the h-bridged motors that open and close the straps
+// Usage: High on pin 10 to tighten the straps, High on pin 11 to loosen straps. Pin 12 will output high until all four limit switches are simultaneously pressed.
+// Action will cease if the driving pin (10 or 11) returns to low (so the process can be halted mid-way).
+
+// Applications:
+//    (shin, thigh, shoulder, forearm) x 2
+//    
 
 unsigned char mil;
 boolean busy;
 
-int motor_dir[4];
 int motor_fwd[4];
 int motor_rev[4];
 int motor_fwd_sw[4];
@@ -12,8 +17,6 @@ int motor_rev_sw[4];
 
 
 void setup() {
-    // shin x 2, thigh x 2, shoulder x 2, forearm x 2
-
     pinMode(2, OUTPUT);   // motor 0
     pinMode(3, OUTPUT);   // motor 0
     pinMode(4, OUTPUT);   // motor 0
@@ -25,7 +28,7 @@ void setup() {
     
     pinMode(10, INPUT);   // directive to close
     pinMode(11, INPUT);   // directive to open
-    pinMode(12, OUTPUT);  // Feedback (LOW when idle)
+    pinMode(12, OUTPUT);  // feedback (LOW when idle)
 
     pinMode(A0, OUTPUT);   // motor 2
     pinMode(A1, OUTPUT);   // motor 2
@@ -64,28 +67,45 @@ void setup() {
 // Reverse = opening
 
 void loop() {
-  mil = millis();
 
-  if ((digitalRead(10) == HIGH) && (!busy))
-  {
-      busy = true;
-      digitalWrite(12, busy);   // Indicate to the MCU that the process are closing
+    mil = millis();
+  
+    if (digitalRead(10) == HIGH)
+    {
+        busy = false;
+        for (int i = 0; i < 4; i ++)  // For each motor
+        {
+            if (digitalRead(motor_fwd_sw[i]) == LOW)  // Run until the forward switch is triggered
+            {
+                digitalWrite(motor_fwd[i], HIGH);
+                busy = true;
+            } else {
+                digitalWrite(motor_fwd[i], LOW);
+            }
+        }
+    } else {
+        for (int i = 0; i < 4; i++) { digitalWrite(motor_fwd[i], LOW); }
+    }
+  
+    if (digitalRead(11) == HIGH)
+    {
+        busy = false;
+  
+        for (int i = 0; i < 4; i ++)  // For each motor
+        {
+            if (digitalRead(motor_rev_sw[i]) == LOW) // Run until the reverse switch is triggered
+            {
+                digitalWrite(motor_rev[i], HIGH);
+            } else {
+                digitalWrite(motor_rev[i], LOW);
+            }
+        }
+    } else {
+        for (int i = 0; i < 4; i++) { digitalWrite(motor_rev[i], LOW); }
+    }
 
-      for (int i = 0; i < 4; i ++)  // For each motor
-      {
-          if (digitalRead(motor_fwd_sw[i]) == LOW)
-          {
-              digitalWrite(motor_fwd[i], HIGH);
-          } else {
-              digitalWrite(motor_fwd[i], LOW);
-          }
-      }
-  }
-
-  if ((digitalRead(11) == HIGH) && (!busy))
-  {
-      busy = true;
-      digitalWrite(12, busy);   // Indicate to the MCU that the straps are opening
-  }
-
+    digitalWrite(12, busy);   // Indicate to the MCU the status of the open/close
 }
+
+
+
