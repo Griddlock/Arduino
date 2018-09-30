@@ -15,6 +15,7 @@ int stick_val[2];
 int stick_trig[2];
 
 int selected_item;
+int cursor_item;
 
 void setup() {
 
@@ -25,12 +26,12 @@ void setup() {
       // Spring-assisted movement to help lift (think garage door opener, with spring-loaded pulley and cable)
     // arm gun, back gun, exit (think of all the controls needed)
     
-    pinMode(2, OUTPUT); //        Menu bit 1 to demultiplexer
-    pinMode(3, OUTPUT); // PWM    Menu bit 2 to demultiplexer
-    pinMode(4, OUTPUT); //        Menu bit 3 to demultiplexer
-    pinMode(5, OUTPUT); // PWM    Activate menu item
-    pinMode(6, OUTPUT); // PWM
-    pinMode(7, OUTPUT);
+    pinMode(2, OUTPUT); //        Cursor bit 1 to demultiplexer
+    pinMode(3, OUTPUT); // PWM    Cursor bit 2 to demultiplexer
+    pinMode(4, OUTPUT); //        Cursor bit 3 to demultiplexer
+    pinMode(5, OUTPUT); // PWM    Selected bit 1    
+    pinMode(6, OUTPUT); // PWM    Selected bit 2
+    pinMode(7, OUTPUT); //        Selected bit 3
     pinMode(8, OUTPUT);
     pinMode(9, OUTPUT); // PWM
     pinMode(10, OUTPUT); // PWM
@@ -64,13 +65,13 @@ void loop() {
     if (stick_trig[0] == -1) { }
 
     // Right
-    if (stick_trig[0] == 1) { }
+    if (stick_trig[0] == 1) { select_item = cursor_item; send_selected_value(selected_item); }
     
     // Up
-    if (stick_trig[1] == -1) { selected_item--; if (selected_item < 0) { selected_item = 7; } }
+    if (stick_trig[1] == -1) { cursor_item--; if (cursor_item < 0) { cursor_item = 7; } send_cursor_value(cursor_item); }
     
     // Down
-    if (stick_trig[1] == 1) { selected_item++; if (selected_item > 7) { selected_item = 0; } }
+    if (stick_trig[1] == 1) { cursor_item++; if (cursor_item > 7) { cursor_item = 0; } send_cursor_value(cursor_item); }
 
     // Reset the movement trigger, since they have been used now
     if (stick_trig[0] != 0) { stick_trig[0] = 0; }
@@ -78,7 +79,13 @@ void loop() {
 
     // *********************
 
-    // ********************* Menu item cursor
+    /*
+     * Menu items:
+     *    Ingress/Egress
+     *    Rear weapon
+     *    right arm gun
+     */
+    
 
 }
 
@@ -107,6 +114,20 @@ void check_joystick()
         }
         
     }
+}
+
+void send_cursor_value(int val)
+{
+    digitalWrite(2, ((val & 1) ? HIGH : LOW));
+    digitalWrite(3, ((val & 2) ? HIGH : LOW));
+    digitalWrite(4, ((val & 4) ? HIGH : LOW));
+}
+
+void send_selected_value(int val)
+{
+    digitalWrite(5, ((val & 1) ? HIGH : LOW));
+    digitalWrite(6, ((val & 2) ? HIGH : LOW));
+    digitalWrite(7, ((val & 4) ? HIGH : LOW));
 }
 
 int stick(int axis)
