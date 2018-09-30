@@ -1,11 +1,20 @@
 // This is the master CPU for the exosuit. It runs the joystick and the control panel, and delegates tasks to other controller boards
 
+/*
+ *              MCU
+ *               |
+ *         Strap  
+ *         
+ *         
+ */
+
 
 unsigned long mil;
 boolean stick_debounce[2];
 int stick_val[2];
 int stick_trig[2];
 
+int selected_item;
 
 void setup() {
 
@@ -16,10 +25,10 @@ void setup() {
       // Spring-assisted movement to help lift (think garage door opener, with spring-loaded pulley and cable)
     // arm gun, back gun, exit (think of all the controls needed)
     
-    pinMode(2, OUTPUT); //
-    pinMode(3, OUTPUT); // PWM
-    pinMode(4, OUTPUT); //
-    pinMode(5, OUTPUT); // PWM  
+    pinMode(2, OUTPUT); //        Menu bit 1 to demultiplexer
+    pinMode(3, OUTPUT); // PWM    Menu bit 2 to demultiplexer
+    pinMode(4, OUTPUT); //        Menu bit 3 to demultiplexer
+    pinMode(5, OUTPUT); // PWM    Activate menu item
     pinMode(6, OUTPUT); // PWM
     pinMode(7, OUTPUT);
     pinMode(8, OUTPUT);
@@ -46,31 +55,31 @@ void loop() {
 
     mil = millis();
 
+
+    // ********************* Joystick movement and cursor movement
+
     check_joystick();     // Set stick_trig[0] or stick_trig[1] when the user has pushed the joystick to a direction
 
-    if (stick_trig[0] == -1)
-    {
-        // Left arrow
-    }
-    
-    if (stick_trig[0] == 1)
-    {
-        // Right arrow
-    }
+    // Left
+    if (stick_trig[0] == -1) { }
 
-    if (stick_trig[1] == -1)
-    {
-        // Up arrow
-    }
+    // Right
+    if (stick_trig[0] == 1) { }
     
-    if (stick_trig[1] == 1)
-    {
-        // Down arrow
-    }
+    // Up
+    if (stick_trig[1] == -1) { selected_item--; if (selected_item < 0) { selected_item = 7; } }
+    
+    // Down
+    if (stick_trig[1] == 1) { selected_item++; if (selected_item > 7) { selected_item = 0; } }
 
     // Reset the movement trigger, since they have been used now
     if (stick_trig[0] != 0) { stick_trig[0] = 0; }
     if (stick_trig[1] != 0) { stick_trig[0] = 1; }
+
+    // *********************
+
+    // ********************* Menu item cursor
+
 }
 
 
