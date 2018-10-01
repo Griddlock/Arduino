@@ -32,11 +32,11 @@ void setup() {
     pinMode(5, OUTPUT); // PWM    Selected bit 1    
     pinMode(6, OUTPUT); // PWM    Selected bit 2
     pinMode(7, OUTPUT); //        Selected bit 3
-    pinMode(8, OUTPUT);
-    pinMode(9, OUTPUT); // PWM
-    pinMode(10, OUTPUT); // PWM
-    pinMode(11, OUTPUT); // PWM
-    pinMode(12, OUTPUT);
+    pinMode(8, OUTPUT); //        COMMAND: Straps, close
+    pinMode(9, OUTPUT); // PWM    COMMAND: Straps, open
+    pinMode(10, OUTPUT); // PWM   COMMAND: Rear gun, present
+    pinMode(11, OUTPUT); // PWM   COMMAND: Rear gun, stow
+    pinMode(12, OUTPUT); //       
 
     pinMode(A0, INPUT);
     pinMode(A1, INPUT);
@@ -80,11 +80,18 @@ void loop() {
     // *********************
 
     /*
-     * Menu items:
-     *    Ingress/Egress
-     *    Rear weapon
+     * Menu items to decide what the right-had trigger/joystick button do
+     *    Straps close / unlock stand
+     *    Straps open / lock stand
+     *    Rear weapon fire / Rear weapon
      *    right arm gun
+     *    
+     *    
+     *    The rear gun, when its value == select_item, check the switches for whether it is in 'ready' position, and if not, attempt to put it into ready position.
+     *        Then, when its value is NOT selected, do the same for stowing it.
      */
+
+
     
 
 }
