@@ -6,7 +6,7 @@
 // Applications:
 //    (shin, thigh, shoulder, forearm) x 2
 //    
-
+//    (ankle, knee, hip, arm) x 2
 unsigned char mil;
 boolean busy;
 
