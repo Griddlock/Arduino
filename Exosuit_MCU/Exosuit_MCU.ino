@@ -148,8 +148,40 @@ void alertsound(int id)
     // id = identification of which sound to play
     // 1 = error, 2 = stand lock on, 3 = stand lock off, 4 = rear gun up, 5 = rear gun stowed
 
-    // Create a sound generator instead of using tone()    
+    boolean spk = false;
+    // Create a sound generator instead of using tone()
+    if (id == 1)
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            spk = !spk;
+            digitalWrite(6, spk);
+            delay(30);
+        }
+    }
+
+    if (id == 2)
+    {
+        for (int i = 0; i < 30; i++)
+        {
+            spk = !spk;
+            digitalWrite(6, spk);
+            delay(50 - i);
+        }
+    }
+
+    if (id == 3)
+    {
+        for (int i = 0; i < 30; i++)
+        {
+            spk = !spk;
+            digitalWrite(6, spk);
+            delay(50 - i);
+        }
+    }
     
+    
+    digitalWrite(6, LOW);
 }
 
 
