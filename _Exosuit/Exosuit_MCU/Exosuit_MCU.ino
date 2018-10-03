@@ -26,7 +26,7 @@ void setup() {
     pinMode(4, OUTPUT);  //       Selected bit 1 to demultiplexer
     pinMode(5, OUTPUT);  // PWM   Selected bit 2 to demultiplexer
     pinMode(6, OUTPUT);  // PWM   Speaker
-    pinMode(7, OUTPUT);  //       
+    pinMode(7, OUTPUT);  //       COMMAND: Locking mechanism (0 = open, 1 = close);
     pinMode(8, OUTPUT);  //       COMMAND: Straps, close
     pinMode(9, OUTPUT);  // PWM   COMMAND: Straps, open
     pinMode(10, OUTPUT); // PWM   COMMAND: Rear gun, present
@@ -35,7 +35,7 @@ void setup() {
 
     pinMode(A0, OUTPUT); //       COMMAND: Right arm gun fire
     pinMode(A1, OUTPUT); //       COMMAND: Left arm gun fire
-    pinMode(A2, OUTPUT); //       COMMAND: Locking mechanism (0 = open, 1 = close);
+    pinMode(A2, OUTPUT); //       
     pinMode(A3, INPUT); //        Trigger 2 ('go forward')
     pinMode(A4, INPUT); //        Trigger 3 ('go back')
     pinMode(A5, INPUT); //        Joystick button
@@ -132,7 +132,7 @@ void loop() {
             delay(30);
             standing_lock = !standing_lock;
             if (standing_lock) { alertsound(2); } else { alertsound(3); }
-            digitalWrite(A2, standing_lock);  // Invert the locking mechanism
+            digitalWrite(7, standing_lock);  // Invert the locking mechanism
         }
         
         digitalWrite(8, digitalRead(trigger2));   // Close the straps

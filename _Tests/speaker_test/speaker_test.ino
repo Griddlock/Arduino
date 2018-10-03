@@ -3,9 +3,9 @@ void setup() {
 
     pinMode(6, OUTPUT); // speaker
 
-    pinMode(2, INPUT);
-    pinMode(3, INPUT);
-    pinMode(4, INPUT);
+    pinMode(2, INPUT); // 10K resistor to ground, to button that contacts Vcc
+    pinMode(3, INPUT); // this too
+    pinMode(4, INPUT); // this too
 }
 
 void loop() {
@@ -60,6 +60,8 @@ void alertsound(int id)
         }
         }
     }
+
+    // (under devlopment...just have to add two more sounds)
     
     
     digitalWrite(6, LOW);
