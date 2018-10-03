@@ -26,7 +26,7 @@ void setup() {
     pinMode(4, OUTPUT);  //       Selected bit 1 to demultiplexer
     pinMode(5, OUTPUT);  // PWM   Selected bit 2 to demultiplexer
     pinMode(6, OUTPUT);  // PWM   Speaker
-    pinMode(7, OUTPUT);  //       COMMAND: Locking mechanism (0 = open, 1 = close);
+    pinMode(7, OUTPUT);  //       COMMAND: Standing Lock Mechanism (0 = open/unlock, 1 = close/lock);
     pinMode(8, OUTPUT);  //       COMMAND: Straps, close
     pinMode(9, OUTPUT);  // PWM   COMMAND: Straps, open
     pinMode(10, OUTPUT); // PWM   COMMAND: Rear gun, present
