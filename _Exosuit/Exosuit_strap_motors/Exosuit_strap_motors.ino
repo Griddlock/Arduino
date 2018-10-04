@@ -2,11 +2,13 @@
 // This board controls up to 4 of the h-bridged motors that open and close the straps
 // Usage: High on pin 10 to tighten the straps, High on pin 11 to loosen straps. Pin 12 will output high until all four limit switches are simultaneously pressed.
 // Action will cease if the driving pin (10 or 11) returns to low (so the process can be halted mid-way).
+// Any motors that are mot connected should have both switches tied to high.
 
 // Applications:
 //    (shin, thigh, shoulder, forearm) x 2
 //    
-//    (ankle, knee, hip, arm) x 2
+//    (ankle, knee, hip) x 2
+//    (shoulder x 2, arm x 2)
 unsigned char mil;
 boolean busy;
 
@@ -19,25 +21,25 @@ int motor_rev_sw[4];
 void setup() {
     pinMode(2, OUTPUT);   // motor 0
     pinMode(3, OUTPUT);   // motor 0
-    pinMode(4, OUTPUT);   // motor 0
-    pinMode(5, OUTPUT);   // motor 0
+    pinMode(4, INPUT);    // motor 0
+    pinMode(5, INPUT);    // motor 0
     pinMode(6, OUTPUT);   // motor 1
     pinMode(7, OUTPUT);   // motor 1
-    pinMode(8, OUTPUT);   // motor 1
-    pinMode(9, OUTPUT);   // motor 1
+    pinMode(8, INPUT);    // motor 1
+    pinMode(9, INPUT);    // motor 1
     
     pinMode(10, INPUT);   // directive to close
     pinMode(11, INPUT);   // directive to open
     pinMode(12, OUTPUT);  // feedback (LOW when idle)
 
-    pinMode(A0, OUTPUT);   // motor 2
-    pinMode(A1, OUTPUT);   // motor 2
-    pinMode(A2, OUTPUT);   // motor 2
-    pinMode(A3, OUTPUT);   // motor 2
-    pinMode(A4, OUTPUT);   // motor 3
-    pinMode(A5, OUTPUT);   // motor 3
-    pinMode(A6, OUTPUT);   // motor 3
-    pinMode(A7, OUTPUT);   // motor 3
+    pinMode(A0, OUTPUT);  // motor 2
+    pinMode(A1, OUTPUT);  // motor 2
+    pinMode(A2, INPUT);   // motor 2
+    pinMode(A3, INPUT);   // motor 2
+    pinMode(A4, OUTPUT);  // motor 3
+    pinMode(A5, OUTPUT);  // motor 3
+    pinMode(A6, INPUT);   // motor 3
+    pinMode(A7, INPUT);   // motor 3
 
     motor_fwd[0] = 2;
     motor_rev[0] = 3;
@@ -96,6 +98,7 @@ void loop() {
             if (digitalRead(motor_rev_sw[i]) == LOW) // Run until the reverse switch is triggered
             {
                 digitalWrite(motor_rev[i], HIGH);
+                busy = true;
             } else {
                 digitalWrite(motor_rev[i], LOW);
             }

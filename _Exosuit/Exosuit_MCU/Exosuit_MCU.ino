@@ -85,8 +85,7 @@ void loop() {
      *    0 - "Safety": (all attempts make error sound)
      *    1 - "Rear Gun": present / fire / stow
      *    2 - "Arm Guns": nothing / fire right / fire left
-     *    3 - "Ingress": toggle standing locks / straps close / straps open
-     *    
+     *    3 - "Ingress": toggle standing locks / straps close / straps open   
      */
 
 
