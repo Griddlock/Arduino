@@ -1,0 +1,45 @@
+Introduction to Arduino
+- why use Arduino (cheap, easy, small, versatile)
+- what it is (show the board, tiny microcontroller)
+- what it can be used for (controlling lights, motors, speakers, anything electric)
+	- using them in cosplay enhances your costume dramatically
+- digital and analog pins (output high/low, analog read)
+- use on a breadboard (for development)
+
+
+Programming
+- how to install the develpment environment
+- how to start a new project
+- how to connect the arduino board (USB)
+- how to select the correct port (before and after plugging in, to help identify port)
+- compile (translate into the native language of the board) and upload
+	- blank program does nothing, but the environment is ready to work with.
+
+
+Programming basics
+- variables, what they are
+- some variable types (int & boolean)
+- if blocks (decision making)
+- commands to set up serial output (for beginner programming)
+- manipulating variables (math functions, mainly)
+- serial output, delay()
+- test program on an actualy board to show that serial output works (hello world program)
+
+Electronics primer
+- electricity is expressed as going from positive to negative
+- volts and amps (pressure and volume)
+- what a short is, and why it is bad (high amps burn out stuff)
+- what high and low mean (5v and 0v)
+- the fact that a disconnected pin may give random input
+- pull-down resistor to force low
+- switch connected to Vcc, gives clear high and low as input
+
+
+Board basics
+- pinMode setup
+- manipulating the pin output with digitalWrite()
+- using variables to make the pin alternate every second
+- set up circuit with LED and button (with pull down resistor)
+- LED flashes only while button is held down
+
+
