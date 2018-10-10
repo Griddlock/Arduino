@@ -70,11 +70,14 @@ The real-time loop
 
 Debouncing
 - Why buttons need debouncing
-- how to do it in the real-time loop
+- how to do it in the real-time loop (debounce on down, debounce on up, trigger action)
 
 Coding for Cosplay (usable programs)
 - fire glow (red and yellow LEDs, random analog values, fast flickering)
 - lightning (multiple blue/white lines, extreme rapid flashing)
 - slow glow (green and blue slow irregular glowing to random brightnesses, slow glow on and off with button press)
-- stepper motor controller (tracking position for self-limiting, controlled by joystick)
-- 
+- home-made stepper motor controller (tracking position for self-limiting, controlled by joystick)
+- using premade components:
+	- h-bridge
+	- mp3 player (and amplifiers)
+	- 
