@@ -25,6 +25,7 @@ Programming basics
 - serial output, delay()
 - test program on an actualy board to show that serial output works (hello world program)
 
+
 Electronics primer
 - electricity is expressed as going from positive to negative
 - volts and amps (pressure and volume)
@@ -32,7 +33,7 @@ Electronics primer
 - what high and low mean (5v and 0v)
 - the fact that a disconnected pin may give random input
 - pull-down resistor to force low
-- switch connected to Vcc, gives clear high and low as input
+- switch connected to Vcc, gives definite high and low as input
 
 
 Board basics
@@ -43,3 +44,37 @@ Board basics
 - LED flashes only while button is held down
 
 
+Functions
+- For doing complex processes multiple times with slightly varying input
+- For organizing your code better
+- build a function that flashes the LED a specified number of times after button is pressed
+- for further commands/functions, refer to the Arduino reference guide online
+
+
+Analog output, Pulse wave modulation
+- outputs high and low rapidly to simulate lower current, effectively dimming LEDs
+- make the LED glow on and off regularly when button pressed
+- only on pins 3,5,6,9,10,11
+
+Analog input
+- only on pins A0 - A7
+- resistor voltage divider (2 x 5K), with seiral output
+- joystick hookup and reading (2 pins), with serial output
+
+The real-time loop
+- concept that a process can be done bits at a time, allowing the loop to continue between delays
+- show the standard real time loop structure
+- blink an LED once per second for 1/5 of a second (on delay = mil + 1000, off delay = mil + 200)
+- blink another LED at a random rate
+- explain that many more processes can be added without interrupting the ones already there
+
+Debouncing
+- Why buttons need debouncing
+- how to do it in the real-time loop
+
+Coding for Cosplay (usable programs)
+- fire glow (red and yellow LEDs, random analog values, fast flickering)
+- lightning (multiple blue/white lines, extreme rapid flashing)
+- slow glow (green and blue slow irregular glowing to random brightnesses, slow glow on and off with button press)
+- stepper motor controller (tracking position for self-limiting, controlled by joystick)
+- 
