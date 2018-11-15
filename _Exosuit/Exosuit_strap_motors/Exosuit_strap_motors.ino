@@ -71,8 +71,11 @@ void setup() {
 void loop() {
 
     mil = millis();
+
+    bool pin10 = (digitalRead(10) == HIGH);
+    bool pin11 = (digitalRead(11) == HIGH);
   
-    if (digitalRead(10) == HIGH)
+    if (pin10 && !pin11)
     {
         busy = false;
         for (int i = 0; i < 4; i ++)  // For each motor
@@ -89,7 +92,7 @@ void loop() {
         for (int i = 0; i < 4; i++) { digitalWrite(motor_fwd[i], LOW); }
     }
   
-    if (digitalRead(11) == HIGH)
+    if (pin11 && !pin10)
     {
         busy = false;
   
