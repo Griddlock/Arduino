@@ -1,0 +1,133 @@
+
+button = joystick clicker button
+Trigger 0 = top trigger on right hand
+Trigger 1 = bottom trigger on right hand
+Trigger 2 = top trigger on left hand
+Trigger 3 = bottom trigger on left hand
+Master = main power switch
+
+Menu modes:
+(y)	Safety: button toggles between on/off
+(b)	Straps: button toggles between open/close, trigger 1 toggles straps, trigger 2 toggles lock
+(r)	Weapons: button toggles rear guns up/down. Triggers: 1-right arm, 2-right rear, 3-left arm, 4-left rear
+(w)	Spotlight: button toggles on/off
+
+
+Standing locks
+	- ankle (2)
+	- knee (2)
+	- hip (2)
+	- hip lateral rotator (2)
+	- torso (1) (lock the left/right tilting)
+	- shoulder (2)
+	- elbow (2)
+The standing locks must be adjustable during development because the weight distribution will change constantly, maybe even after as well.
+	- toothed washer, like the baby-swing switched
+
+Strap locks
+	- foot (2)
+	- shin (2)
+	- thigh (2)
+	- shoulder (2)
+	- lower arm (2)
+To minimize wiring, pairs: (foot + shin) x 2, (both thighs) x 1, (shoulder + arm) x 2
+Chest strap held down with magnets (must be strong enough for chest strap to hold weight of entire suit)
+Chest strap lifts the entire external chest cover up out of the way (pistons with contracting spring to pull upward)
+
+Gun arm position
+	- 'elbow' (2)
+	- 'wrist' (2)
+
+Battery packs must ALL be accessible while wearing the suit!
+	- arms
+	- chest (inner layer)
+	- hips
+
+Connect everything with RJ-45 connectors, including the low-amp power supplies.
+
+Hobby battery needed for the arm motors (also better motors) to get the arm to come up fast enough.
+	https://www.greathobbies.com/productinfo/?prod_id=HOBP0855
+	12v battery, but might not have an available charger
+
+Need to have dedicated Arduino to control the two arm joints, since it will need a very fast response; cannot afford to share multitasking, probably?
+
+Each gun has its own Arduino for:
+	- lighting effects
+	- mp3 player (with a minimum 1-minute long sound effect of the gun)
+	- speaker inside the gun, for authentic 3D sound.
+Enabled by trigger, but only if the safety is NOT on.
+Each gun should have a unique gun sound to differentiate between them.
+
+
+Materials list
+- Steel channel ($15 each, 12')
+- J-trim ($6 each, 10')
+- ABS sheets? or other kid of plastic that is lighter but durable
+- precut locking mechanisms (circles with slit for the lock)
+	- Maybe PVC pipes, one inside the other with a hole for the lock (coupler + pipe)
+- PVC pipes for the guns
+- heavy duty battery for all motors
+- something as light as foamcore but stronger, for the shoulder guns (or foamcore + 2mm foam?)
+- trigger buttons (4)
+
+
+Work list
+
+Programming
+	- standing locks must be added with the 
+
+Aluminum Frame
+	- Foot
+		- The sole must be rigid for lock-standing
+		- Sides include the ankle joint to the shin
+	- Shin
+		- Simple rigid piece with the joins on each end
+		- Make the height of it adjustable in some small way
+		- Back might need a flap that flips down to add stand-alone stability (on locking)
+			- the worm gear assembly would work well (fast and locking)
+	- Thigh
+		- Simple joint at knee
+		- Large joint at hip
+	- Hip
+		- Joint to leg
+		- Wrap around torso to join both sides
+		- Needs z-axis rotation where hip joint is connected to the torso so legs can change stance (distance from center)
+			- should be spring-loaded so that they return to a natural position for standing
+			- might still need an aditional lock for that z-axis joint
+	- Torso
+		- Single joint on the back, needs lock (or spring-loading, preferred)
+		- Must adjust slightly with movement (bending forward/back will depend on the hip)
+		
+	- Chest
+		- One piece that flips up/down
+		- some sort of lock under the arm to keep it down (clip, motor-lock, magnet preferred)
+
+Standing Locks
+	- rectangle pieces of thick metal
+		- slot on one side for the lock insert
+		- hole for common axis
+		- hole on oppisite side of slot for adjusting, recessed head to keep from catching on the opposite piece.
+
+	- dual circles
+		- inner and outer circle, this will keep them fitted together, as opposed to a cirlce and a reinforced bolt
+		- each attached to an opposite piece, groove for the locking piece
+		- locking mechanism attached to the same side as the outer circle
+		- bolt is on a stretchable/compressable spring to allow it to snap into the inner circle and pull out of the inner when the friction is released
+		- Lego actuator would work in this case.
+		- The inner circle would have to be adjustable for the angle
+
+BEST OPTION:
+	- wide joints
+		- simple reinforced bolt spring loaded to go into the slot on the leg
+		- position of the slot would not be movable
+		- but it would have a stronger mechanical advantage than a smaller circle.
+		- having a balancer come down from the back of the foot/shin would allowe greater margin of error for balance
+			- could also allow for removing props and still be able to stand
+
+	- bolt slider
+		- lego actuator pushing and pulling a spring attached to the bold
+		- bolt should be at least three times as long as its movement
+		- strong encasement that can hold the pressure of the torque
+
+
+
