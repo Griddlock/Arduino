@@ -1,10 +1,32 @@
+
+
 Introduction to Arduino
 - why use Arduino (cheap, easy, small, versatile)
 - what it is (show the board, tiny microcontroller)
 - what it can be used for (controlling lights, motors, speakers, anything electric)
 	- using them in cosplay enhances your costume dramatically
+- Not explaining anything more than you need to know!
 - digital and analog pins (output high/low, analog read)
 - use on a breadboard (for development)
+
+This video is to teach you how to control electronic and electrical components with a program. I'm going to explain just enough so that you will be able to build electronic circuits and understand why they work.
+
+The great thing about hobby electronics these days is that they are cheap. Everything that you need to build what I'm about to show you costs only a few dollars online. I get all my components from banggood.com, and everything has been reliable so far.
+
+This is the Arduino Nano. Technically, this board contains more than just the Arduino chip, but for what we need, it is the brain of our project. It has __ pins on it, but I will explain them as we need them.
+
+This board can control all sorts of devices, such as LEDs, motors, relays, and even speakers. To get the Arduino board to control your devices, you will need to learn a little about electrical circuits, electronic logic, and a bit of programming. This video series will guide you through all these checkpoints, so that you can get to building whatever it is you need.
+
+For this series, here is the equipment and componets you will need to create the demonstrated projects:
+- Arduino board
+- resistors
+- LEDs
+- push buttons
+- breadboard
+- Mini USB cable
+- jumper wires
+- computer (for programming)
+
 
 
 Programming
@@ -80,4 +102,9 @@ Coding for Cosplay (usable programs)
 - using premade components:
 	- h-bridge
 	- mp3 player (and amplifiers)
-	- 
+	- accellerometer
+	- IR transceivers
+	- LCD board
+	- 7-seg tube
+	- number keypad
+	- thermistors
