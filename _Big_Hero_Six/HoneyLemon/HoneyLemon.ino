@@ -73,7 +73,7 @@ void close_door()
   digitalWrite(7,1);
   delay(50);
   digitalWrite(3,1);
-  delay(700);
+  delay(1000);
   digitalWrite(3,0);
   delay(50);
   digitalWrite(7,0);
