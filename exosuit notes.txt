@@ -30,18 +30,18 @@ Strap locks
 	- thigh (2)
 	- shoulder (2)
 	- lower arm (2)
-To minimize wiring, pairs: (foot + shin) x 2, (both thighs) x 1, (shoulder + arm) x 2
-Chest strap held down with magnets (must be strong enough for chest strap to hold weight of entire suit)
-Chest strap lifts the entire external chest cover up out of the way (pistons with contracting spring to pull upward)
 
-Gun arm position
+	- To minimize wiring, pairs: (foot + shin) x 2, (both thighs) x 1, (shoulder + arm) x 2
+	- Chest strap held down with magnets (must be strong enough for chest strap to hold weight of entire suit)
+	- Chest strap lifts the entire external chest cover up out of the way (pistons with contracting spring to pull upward)
+
+Gun arm position motors and switches
 	- 'elbow' (2)
 	- 'wrist' (2)
 
-Battery packs must ALL be accessible while wearing the suit!
-	- arms
-	- chest (inner layer)
-	- hips
+Battery packs
+	- 5V phone chargers on the arms, closes to the most Arduinos
+	- 12V big battery, somewhere on the back/torso
 
 Connect everything with RJ-45 connectors, including the low-amp power supplies.
 
@@ -49,20 +49,24 @@ Hobby battery needed for the arm motors (also better motors) to get the arm to c
 	https://www.greathobbies.com/productinfo/?prod_id=HOBP0855
 	12v battery, but might not have an available charger
 
-Need to have dedicated Arduino to control the two arm joints, since it will need a very fast response; cannot afford to share multitasking, probably?
+Need to have dedicated Arduino to control the two gun arm joints, since it will need a very fast response; cannot afford to share multitasking, probably?
 
-Each gun has its own Arduino for:
-	- lighting effects
-	- mp3 player (with a minimum 1-minute long sound effect of the gun)
-	- speaker inside the gun, for authentic 3D sound.
-Enabled by trigger, but only if the safety is NOT on.
-Each gun should have a unique gun sound to differentiate between them.
-
+Each Gun
+	- has its own Arduino for:
+		- lighting effects
+		- mp3 player (with a minimum 1-minute long sound effect of the gun)
+		- speaker inside the gun, for authentic 3D sound.
+	- Enabled by trigger, but only if the safety is NOT on.
+	- Each gun should have a unique gun sound to differentiate between them.
+	- Removable orange highlights, for proper photoshooting. And a pouch/pocket for holding them!
 
 Materials list
 - Steel channel ($15 each, 12')
 - J-trim ($6 each, 10')
 - ABS sheets? or other kid of plastic that is lighter but durable
+	- thin formable plastic over foam structure?
+	- just foam?
+	- foam over plasticore?
 - precut locking mechanisms (circles with slit for the lock)
 	- Maybe PVC pipes, one inside the other with a hole for the lock (coupler + pipe)
 - PVC pipes for the guns
@@ -102,32 +106,36 @@ Aluminum Frame
 		- One piece that flips up/down
 		- some sort of lock under the arm to keep it down (clip, motor-lock, magnet preferred)
 
-Standing Locks
-	- rectangle pieces of thick metal
-		- slot on one side for the lock insert
-		- hole for common axis
-		- hole on oppisite side of slot for adjusting, recessed head to keep from catching on the opposite piece.
-
-	- dual circles
-		- inner and outer circle, this will keep them fitted together, as opposed to a cirlce and a reinforced bolt
-		- each attached to an opposite piece, groove for the locking piece
-		- locking mechanism attached to the same side as the outer circle
-		- bolt is on a stretchable/compressable spring to allow it to snap into the inner circle and pull out of the inner when the friction is released
-		- Lego actuator would work in this case.
-		- The inner circle would have to be adjustable for the angle
-
-BEST OPTION:
+Standing Locks:
 	- wide joints
 		- simple reinforced bolt spring loaded to go into the slot on the leg
 		- position of the slot would not be movable
 		- but it would have a stronger mechanical advantage than a smaller circle.
-		- having a balancer come down from the back of the foot/shin would allowe greater margin of error for balance
-			- could also allow for removing props and still be able to stand
+
+	- having a balancer come down from the back of the foot/shin would allow greater margin of error for balance
+		- could also allow for removing props and still be able to stand
 
 	- bolt slider
-		- lego actuator pushing and pulling a spring attached to the bold
+		- lego actuator pushing and pulling a spring attached to the bolt
 		- bolt should be at least three times as long as its movement
 		- strong encasement that can hold the pressure of the torque
+		- protruding end of the bolt should be rounded so the locks engage easily
+	- hip hinges
+		- The hinges needed behind the hip joints should be heavily spring loaded
+		- Must hold stiffly at a natural angle, to support standing, but flexible enough to move.
+			- balance the upper body but still be able to move
+	- torso joint
+		- Must be spring-loaded to support the stand lock stance
+		- Must keep the legs angled properly
+		- Be aware, exiting the costume might cause the legs to snap to their natural position
+
+
+Power:
+	- Since running 14+ motors at once, might need feedback so that only a certian number are working at once
+		- change the strap_motors program to skip the remaining motors in the loop if "this" one is active.
+	- Network cable for lines to and from the strap and lock motors, even though the disconnects are not required
+
+
 
 
 

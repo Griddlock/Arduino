@@ -1,8 +1,6 @@
 /*
  * Menu Controller
- * - Changes output based on the control bits, basically, a
- * - Straps
- * - back-mounted weapon
+ * - Changes output based on the control bits, basically, a fancy multiplexer
  * - 
  */
 
@@ -13,7 +11,7 @@ void setup() {
     pinMode(2, OUTPUT); //      Control bit 1
     pinMode(3, OUTPUT); // PWM  Control bit 2
     pinMode(4, OUTPUT); //      Control bit 3
-    pinMode(5, OUTPUT); // PWM  Control activate
+    pinMode(5, OUTPUT); // PWM  Control activate (joystick button)
     pinMode(6, OUTPUT); // PWM
     pinMode(7, OUTPUT);
     pinMode(8, OUTPUT);
@@ -27,7 +25,7 @@ void setup() {
     pinMode(A2, INPUT);
     pinMode(A3, INPUT);
     pinMode(A4, INPUT);
-    pinMode(A5, INPUT);   // 
+    pinMode(A5, INPUT);   // (move the joystick to here, maybe?)
     pinMode(A6, INPUT);   //
     pinMode(A7, INPUT);   //
 
