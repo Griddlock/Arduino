@@ -9,7 +9,7 @@ Master = main power switch
 Menu modes:
 (y)	Safety: button toggles between on/off
 (b)	Straps: button toggles between open/close, trigger 1 toggles straps, trigger 2 toggles lock
-(r)	Weapons: button toggles rear guns up/down. Triggers: 1-right arm, 2-right rear, 3-left arm, 4-left rear
+(r)	Weapons: button toggles rear guns up/down. Triggers: 0-right arm, 1-right rear, 2-left arm, 3-left rear
 (w)	Spotlight: button toggles on/off
 
 
@@ -17,31 +17,37 @@ Standing locks
 	- ankle (2)
 	- knee (2)
 	- hip (2)
-	- hip lateral rotator (2)
-	- torso (1) (lock the left/right tilting)
-	- shoulder (2)
+	- torso tilt (1)
+	- shoulder blade (2)
 	- elbow (2)
-The standing locks must be adjustable during development because the weight distribution will change constantly, maybe even after as well.
-	- toothed washer, like the baby-swing switched
+
+Spring-loaded joints (alternative to locking mechanisms)
+	- hip hinge (2)
+	- spine y axle (1)
+	- shoulder z axle (2)
+
+Free spinning joints
+	- shoulder
 
 Strap locks
 	- foot (2)
 	- shin (2)
 	- thigh (2)
-	- shoulder (2)
 	- lower arm (2)
 
 	- To minimize wiring, pairs: (foot + shin) x 2, (both thighs) x 1, (shoulder + arm) x 2
-	- Chest strap held down with magnets (must be strong enough for chest strap to hold weight of entire suit)
-	- Chest strap lifts the entire external chest cover up out of the way (pistons with contracting spring to pull upward)
+	- Chest strap held down with magnets (Many. Must be strong enough for chest strap to hold weight of entire suit)
+	- Chest strap lifts the entire external chest cover up out of the way. Spring loaded to stay up.
+	- Magnets also attach the chest to sides under the arm.
 
-Gun arm position motors and switches
-	- 'elbow' (2)
-	- 'wrist' (2)
+Rear gun arms (each)
+	- vertical lift of entire arm
+	- unfolding (need to watch the sequence when the gun folds up)
 
 Battery packs
-	- 5V phone chargers on the arms, closes to the most Arduinos
+	- 5V phone chargers on the arms, closest to the most Arduinos
 	- 12V big battery, somewhere on the back/torso
+	- Main (dual) power switch accessible by left hand when strapped in.
 
 Connect everything with RJ-45 connectors, including the low-amp power supplies.
 
@@ -58,7 +64,8 @@ Each Gun
 		- speaker inside the gun, for authentic 3D sound.
 	- Enabled by trigger, but only if the safety is NOT on.
 	- Each gun should have a unique gun sound to differentiate between them.
-	- Removable orange highlights, for proper photoshooting. And a pouch/pocket for holding them!
+	- Removable orange highlights, for proper photoshooting. And a pouch/pocket for holding them! Or mechanically retracted.
+	- motor that creates a kickback. (geared down to the frequency of the gun's repeat rate)
 
 Materials list
 - Steel channel ($15 each, 12')
