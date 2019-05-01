@@ -69,6 +69,7 @@ Board basics
 - using variables to make the pin alternate every second
 - set up circuit with LED and button (with pull down resistor)
 - LED flashes only while button is held down
+- using variable names for pin assignment (makes combining programs onto a single board much easier)
 
 
 Functions
