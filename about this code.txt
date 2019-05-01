@@ -3,5 +3,3 @@ Hello everyone!
 I am a professional programmer with a hobby of cosplaying. Most of these programs are for the Arduino boards that I put into my costumes, but there are a few tests here and there.
 
 Since the program for the specific costumes are highly integrated, you might find the most useful code you can find here is in the _Tests folder. It is there that I get a specific feature to work on its own (such as the 7-segment-tube driver) and then I add it to the existing program for the costume.
-
-My current project is the Exosuit from "Edge of Tomorrow". There will be at least 4 programs needed for it, one of which will be on three identical boards. But anyway, have fun.
