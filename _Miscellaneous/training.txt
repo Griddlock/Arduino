@@ -26,6 +26,7 @@ For this series, here is the equipment and componets you will need to create the
 - Mini USB cable
 - jumper wires
 - computer (for programming)
+- 5V power supply, such as a phone charger adapter or a phone charger battery pack.
 
 
 
@@ -51,11 +52,15 @@ Programming basics
 Electronics primer
 - electricity is expressed as going from positive to negative
 - volts and amps (pressure and volume)
+- calculation formulas
+- calculate the resitor required for an LED
 - what a short is, and why it is bad (high amps burn out stuff)
 - what high and low mean (5v and 0v)
+- How electronic schematics work, and what the symbols mean
 - the fact that a disconnected pin may give random input
 - pull-down resistor to force low
-- switch connected to Vcc, gives definite high and low as input
+- switch connected to Vcc, gives definite high and low as input (and pull-down resistor)
+- running higher powered components via transistors (i.e. more than one/two LEDs per pin)
 
 
 Board basics
@@ -73,10 +78,10 @@ Functions
 - for further commands/functions, refer to the Arduino reference guide online
 
 
-Analog output, Pulse wave modulation
-- outputs high and low rapidly to simulate lower current, effectively dimming LEDs
+'Analog' output, Pulse wave modulation
+- outputs high and low rapidly to simulate lower current, effectively dimming LEDs, but voltage is actually 5v.
 - make the LED glow on and off regularly when button pressed
-- only on pins 3,5,6,9,10,11
+- only on pins 3,5,6,9,10,11 (and 5 & 6 sometimes act funny by not being able to be fully zero)
 
 Analog input
 - only on pins A0 - A7
@@ -96,7 +101,7 @@ Debouncing
 
 Coding for Cosplay (usable programs)
 - fire glow (red and yellow LEDs, random analog values, fast flickering)
-- lightning (multiple blue/white lines, extreme rapid flashing)
+- lightning (multiple blue/white LEDs, extreme rapid flashing)
 - slow glow (green and blue slow irregular glowing to random brightnesses, slow glow on and off with button press)
 - home-made stepper motor controller (tracking position for self-limiting, controlled by joystick)
 - using premade components:
